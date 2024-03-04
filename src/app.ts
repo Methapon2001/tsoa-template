@@ -4,13 +4,10 @@ import cors from "cors";
 import express from "express";
 import swaggerUi from "swagger-ui-express";
 import swaggerDocument from "./swagger.json";
-import database from "./database/data-source";
 import error from "./middlewares/error";
 import { RegisterRoutes } from "./routes";
 
 async function main() {
-  await database.initialize();
-
   const app = express();
 
   app.use(cors());
