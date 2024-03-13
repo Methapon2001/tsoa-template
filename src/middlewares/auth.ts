@@ -6,11 +6,11 @@ import { keycloakAuth } from "./auth-provider/keycloak";
 export async function expressAuthentication(
   request: Express.Request,
   securityName: string,
-  scopes?: string[],
+  _scopes?: string[],
 ) {
   switch (securityName) {
     case "keycloak":
-      return keycloakAuth(request, securityName, scopes);
+      return keycloakAuth(request);
     default:
       throw new HttpError(HttpStatus.NOT_IMPLEMENTED, "ไม่ทราบวิธียืนยันตัวตน");
   }
